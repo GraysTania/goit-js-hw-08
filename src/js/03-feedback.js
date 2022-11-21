@@ -14,14 +14,15 @@ let objForm = {
   message: '',
 };
 
+const STORAGE_KEY = 'feedback-form-state';
 function handleInputForm(e) {
   objForm.email = refs.formEmail.value;
   objForm.message = refs.formMessage.value;
 
-  localStorage.setItem('feedback-form-state', JSON.stringify(objForm));
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(objForm));
 }
 
-const formSave = JSON.parse(localStorage.getItem('feedback-form-state'));
+const formSave = JSON.parse(localStorage.getItem(STORAGE_KEY));
 
 if (formSave) {
   refs.formEmail.value = formSave.email;
@@ -31,6 +32,6 @@ if (formSave) {
 function handleSubmitForm(e) {
   e.preventDefault();
   refs.form.reset();
-  localStorage.removeItem('feedback-form-state');
+  localStorage.removeItem(STORAGE_KEY);
   console.log(formSave);
 }

@@ -9,15 +9,13 @@ const refs = {
 refs.form.addEventListener('input', throttle(handleInputForm, 500));
 refs.form.addEventListener('submit', handleSubmitForm);
 
-let objForm = {
-  email: '',
-  message: '',
-};
-
 const STORAGE_KEY = 'feedback-form-state';
+
 function handleInputForm(e) {
-  objForm.email = refs.formEmail.value;
-  objForm.message = refs.formMessage.value;
+  const objForm = {
+    email: 'refs.formEmail.value',
+    message: 'refs.formMessage.value',
+  };
 
   localStorage.setItem(STORAGE_KEY, JSON.stringify(objForm));
 }
